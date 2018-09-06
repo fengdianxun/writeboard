@@ -10,7 +10,10 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 
-class BoardView(context: Context, attrs: AttributeSet) : View(context, attrs) {
+class BoardView : View {
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+
     private val paint = Paint().also {
         it.color = Color.RED
         it.style = Paint.Style.STROKE
@@ -38,7 +41,7 @@ class BoardView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         canvas?.drawPath(path, paint)
     }
 
-    fun clear(){
+    fun clear() {
         path.reset()
         invalidate()
     }
